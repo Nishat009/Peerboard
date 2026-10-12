@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens. Neutrals use Tailwind's slate scale; the brand is a calm, desaturated blue
+ * that reads as "tool", not "marketing". Status colors reuse Tailwind's emerald/amber/rose.
+ */
+@theme {
+  --color-brand-50: #eef3ff;
+  --color-brand-100: #dce6fd;
+  --color-brand-200: #c0d2fb;
+  --color-brand-300: #94b3f7;
+  --color-brand-400: #628bf1;
+  --color-brand-500: #3f66e8;
+  --color-brand-600: #2c4cd9;
+  --color-brand-700: #253cb8;
+  --color-brand-800: #233494;
+  --color-brand-900: #1f2f73;
+  --color-brand-950: #161e45;
+
+  --color-canvas: #f8fafc;
+}
+
+@layer base {
+  html,
+  body {
+    @apply h-full bg-canvas text-slate-900 antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+}
