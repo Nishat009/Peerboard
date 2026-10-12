@@ -1,0 +1,65 @@
+{
+  "name": "@peerboard/provider",
+  "version": "0.1.0",
+  "description": "Serverless Yjs provider over a WebRTC mesh: perfect negotiation, E2E encryption, encrypted IndexedDB persistence.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nishat009/Peerboard.git",
+    "directory": "packages/provider"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "keywords": [
+    "yjs",
+    "crdt",
+    "webrtc",
+    "provider",
+    "p2p",
+    "collaboration",
+    "e2ee"
+  ],
+  "exports": {
+    ".": "./src/index.ts",
+    "./crypto": "./src/crypto.ts"
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
+      },
+      "./crypto": {
+        "types": "./dist/crypto.d.ts",
+        "import": "./dist/crypto.js"
+      }
+    },
+    "types": "./dist/index.d.ts"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "bench": "tsx bench/sync-bench.ts",
+    "prepublishOnly": "pnpm build"
+  },
+  "dependencies": {
+    "@peerboard/shared": "workspace:*",
+    "lib0": "^0.2.119",
+    "socket.io-client": "^4.8.4",
+    "y-protocols": "^1.0.7"
+  },
+  "peerDependencies": {
+    "yjs": "^13.6.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "tsx": "^4.23.15",
+    "yjs": "^13.6.33"
+  }
+}
