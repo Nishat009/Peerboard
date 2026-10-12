@@ -1,0 +1,20 @@
+# Render blueprint for the signaling server. The web app deploys to Vercel (root: apps/web).
+services:
+  - type: web
+    name: peerboard-signaling
+    runtime: node
+    plan: free
+    buildCommand: npm i -g pnpm@9 && pnpm install --frozen-lockfile && pnpm --filter @peerboard/signaling build
+    startCommand: node apps/signaling/dist/index.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: TRUST_PROXY
+        value: 'true'
+      - key: CORS_ORIGINS
+        sync: false
+      - key: TURN_URLS
+        sync: false
+      - key: TURN_SECRET
+        sync: false
