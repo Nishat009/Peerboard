@@ -172,6 +172,8 @@ export default function Whiteboard() {
     };
 
     if (tool === 'text') {
+      // Otherwise the follow-up mousedown moves focus off the new textarea, which deletes it as empty.
+      e.evt.preventDefault();
       const text: TextShape = {
         ...base,
         type: 'text',

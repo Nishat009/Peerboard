@@ -3,6 +3,8 @@
 A real-time whiteboard and notes app where browsers sync **directly with each other**.
 No server stores or even sees your content.
 
+![Two browsers editing the same PeerBoard room: a box, text, and an arrow drawn in one window appear instantly in the other, with each user's live cursor](docs/demo.gif)
+
 **[Live demo → peerboard.vercel.app](https://peerboard.vercel.app/)**
 
 ## Try it in 30 seconds
